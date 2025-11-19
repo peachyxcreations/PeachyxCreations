@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peaches' Reviews</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5e9ff;
+      color: #3a2b3f;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #c796ff;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: #5a3e66;
+      font-weight: bold;
+    }
+
+    .reviews {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #c796ff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .review {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0dfff;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<header>Peaches' Reviews</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="reviews.html">Reviews</a>
+</nav>
+
+<section class="reviews">
+  <h2>Leave your reviews here</h2>
+  <textarea id="text"></textarea>
+  <button onclick="addReview()">Submit</button>
+
+  <div id="reviewList"></div>
+</section>
+
+<script>
+  function addReview() {
+    const text = document.getElementById("text").value.trim();
+    if (!text) return;
+
+    const div = document.createElement("div");
+    div.className = "review";
+    div.textContent = text;
+
+    document.getElementById("reviewList").appendChild(div);
+    document.getElementById("text").value = "";
+  }
+</script>
+
+</body>
+</html>
