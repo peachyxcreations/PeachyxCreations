@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peaches' Shop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5e9ff;
+      color: #3a2b3f;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #c796ff;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: #5a3e66;
+      font-weight: bold;
+    }
+
+    .shop {
+      max-width: 900px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .item {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .quantity {
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button {
+      padding: 8px 15px;
+      border: none;
+      background: #c796ff;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>Peaches' Shop</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="reviews.html">Reviews</a>
+</nav>
+
+<section class="shop">
+
+  <div class="item">
+    <img src="placeholder1.jpg" alt="Monster Mouthz">
+    <h3>Can Monsters – £13</h3>
+    <div class="quantity">
+      <button onclick="changeQty(1, -1)">➖</button>
+      <span id="qty1">1</span>
+      <button onclick="changeQty(1, 1)">➕</button>
+    </div>
+    <button onclick="buy(1, 10)">Buy Now</button>
+  </div>
+
+  <div class="item">
+    <img src="placeholder2.jpg" alt="Manic Mimicz">
+    <h3>Mimics – £45</h3>
+    <div class="quantity">
+      <button onclick="changeQty(2, -1)">➖</button>
+      <span id="qty2">1</span>
+      <button onclick="changeQty(2, 1)">➕</button>
+    </div>
+    <button onclick="buy(2, 5)">Buy Now</button>
+  </div>
+
+  <div class="item">
+    <img src="placeholder3.jpg" alt="Peachey Painting">
+    <h3>Canvas Work – £60</h3>
+    <div class="quantity">
+      <button onclick="changeQty(3, -1)">➖</button>
+      <span id="qty3">1</span>
+      <button onclick="changeQty(3, 1)">➕</button>
+    </div>
+    <button onclick="buy(3, 40)">Buy Now</button>
+  </div>
+
+</section>
+
+<script>
+  function changeQty(id, amount) {
+    const span = document.getElementById("qty" + id);
+    let value = parseInt(span.textContent);
+    value = Math.max(1, value + amount);
+    span.textContent = value;
+  }
+
+  function buy(id, price) {
+    const qty = parseInt(document.getElementById("qty" + id).textContent);
+    const total = qty * price;
+    alert("Order placed!\nQuantity: " + qty + "\nTotal: £" + total);
+  }
+</script>
+
+</body>
+</html>
